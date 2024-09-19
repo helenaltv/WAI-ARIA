@@ -3,15 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Accessible Components</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section>
-      <button class="edit-btn">Edit Profile</button>
+      <button
+        class="edit-btn"
+        aria-haspopup="dialog"
+        aria-controls="accessibleModal"
+      >
+        Edit Profile
+      </button>
       <div
         id="accessibleModal"
         class="modal-container"
+        role="dialog"
         aria-modal="true"
         aria-labelledby="modalTitle"
       >
@@ -26,6 +33,30 @@
           </button>
         </div>
       </div>
+
+      <button id="openDialogBtn">Öppna dialog</button>
+      <dialog id="accessibleDialog">
+        <h2>Exempel på tillgängligt modalfönster med &lt;dialog&gt;</h2>
+        <p>Här är innehållet i modalfönstret.</p>
+        <button id="closeDialogBtn">Stäng</button>
+      </dialog>
+
+      <button
+        id="menuButton"
+        aria-expanded="false"
+        aria-controls="menuContent"
+        aria-haspopup="true"
+      >
+        Meny
+      </button>
+      <nav id="menuContent" hidden>
+        <ul>
+          <li><a href="#">Hem</a></li>
+          <li><a href="#">Om oss</a></li>
+          <li><a href="#">Tjänster</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </nav>
     </section>
 
     <script src="index.js"></script>
